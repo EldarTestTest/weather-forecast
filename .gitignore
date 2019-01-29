@@ -1,1 +1,5 @@
 /.idea
+/native-js/.idea
+/native-js/node_modules
+/native-js/build
+/native-js/dist
