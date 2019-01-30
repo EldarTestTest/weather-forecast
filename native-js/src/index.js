@@ -1,4 +1,4 @@
-import * as matcher from './matcher.js'
+import * as matcher from './js/matcher.js'
 
 
 console.log("js has been started");
