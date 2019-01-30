@@ -1,9 +1,16 @@
-import data from '../../public/data'
+import * as store from './store'
+import _ from 'lodash'
 
-export const getLabel = () => {
-    console.log('test');
+class IconMatcher {
 
-    console.log(data);
-    return data.title;
-};
+    getLable(cloudiness) {
+        return _.isArray(store.getMatcher()) ?
+            store.getMatcher().find(item => {
+                return item.value === cloudiness
+            }).label :
+            null;
+    }
 
+}
+
+export default new IconMatcher();

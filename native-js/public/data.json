@@ -12,7 +12,7 @@
       }
     },
     {
-      "value": "rain",
+      "value": "snow",
       "label": "Снег",
       "icon": {
         "path": "",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "value": "rain",
+      "value": "cloud",
       "label": "Облачно",
       "icon": {
         "path": "",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "value": "rain",
+      "value": "sun",
       "label": "Ясно",
       "icon": {
         "path": "",

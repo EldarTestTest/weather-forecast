@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "web-dev": "webpack-dev-server --inline --hot",
-    "webpack-watch": "webpack --watch"
+    "web-dev-server": "webpack-dev-server --inline --hot --mode development",
+    "webpack-watch": "webpack --watch",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,8 @@
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   }
 }

@@ -6,7 +6,10 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'index.js',
-        publicPath: 'public'
+        publicPath: '/build/'
+    },
+    resolve: {
+        modules: ['node_modules']
     },
     module: {
         rules: [
