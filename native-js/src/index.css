@@ -1,10 +1,18 @@
+html{
+    height: 100vh;
+}
 body {
     background-color: #e2f3ff;
 }
 #root{
     display: flex;
+    display: -ms-flex;
+    display: -ms-flexbox;
     justify-content: center;
-    align-content: center;
+    align-items: flex-end;
+    border: 1px solid red;
+    height: calc(100vh - 85vh);
+    min-height: 60px;
 }
 #weatherTitle {
     font-size: 50px;
