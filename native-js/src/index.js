@@ -1,5 +1,5 @@
-import IconMatcher from './js/matcher'
-import {getTitle} from './js/store'
+import IconMatcher from './utils/matcher'
+import {getTitle} from './utils/store'
 import './index.css'
 
 console.log("js has been started");
