@@ -1,4 +1,4 @@
-import data from '../../public/data'
+import data from '../../public/data.json'
 
 const store = data;
 

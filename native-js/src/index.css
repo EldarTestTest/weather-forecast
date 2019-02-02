@@ -1,19 +1,36 @@
 html{
     height: 100vh;
+    font-family: Arial, sans-serif;
 }
 body {
     background-color: #e2f3ff;
 }
+.testBorderBlack{
+    border: 1px solid #000000;
+}
+.testBorderRed{
+    border: 1px solid red;
+}
+.testBorderBlue{
+    border: 1px solid blue;
+}
+.testBorderGreen{
+    border: 1px solid greenyellow;
+}
+.testBorderOrange{
+    border: 1px solid orangered;
+}
 #root{
+    display: flex;
+    flex-flow: column;
+}
+.titleContainer{
+    flex-grow: 1;
+    min-height: calc(100vh - 85vh);
+
     display: flex;
     display: -ms-flex;
     display: -ms-flexbox;
     justify-content: center;
     align-items: flex-end;
-    border: 1px solid red;
-    height: calc(100vh - 85vh);
-    min-height: 60px;
-}
-#weatherTitle {
-    font-size: 50px;
 }
