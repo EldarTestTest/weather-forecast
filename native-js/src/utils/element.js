@@ -15,7 +15,13 @@ export const createButton = (text, title) => {
 export const setClassNames = (element, classNames) => {
     if (element instanceof HTMLElement && _.isArray(classNames)) {
         element.classList.add(...classNames)
-    } else if(element instanceof HTMLElement && _.isString(classNames)){
+    } else if (element instanceof HTMLElement && _.isString(classNames)) {
         element.classList.add(...classNames.split(' '))
     }
+};
+
+export const createWeatherIcon = classNames => {
+    let htmlElement = document.createElement('i');
+    setClassNames(htmlElement, classNames);
+    return htmlElement;
 };

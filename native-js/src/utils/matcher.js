@@ -3,12 +3,19 @@ import _ from 'lodash'
 
 class IconMatcher {
 
-    getLable(cloudiness) {
+    getLabel(cloudiness) {
         return _.isArray(store.getMatcher()) ?
             store.getMatcher().find(item => {
                 return item.value === cloudiness
             }).label :
             null;
+    }
+
+    getIconClasses(cloudiness){
+        return _.isArray(store.getMatcher()) ?
+            store.getMatcher().find(item =>{
+                return item.value === cloudiness
+            }).icon.style : '';
     }
 
 }

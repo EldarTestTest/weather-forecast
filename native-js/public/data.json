@@ -7,32 +7,28 @@
       "value": "rain",
       "label": "Дождь",
       "icon": {
-        "path": "",
-        "style": {}
+        "style": "wu wu-64 wu-black wu-day wu-tstorms"
       }
     },
     {
       "value": "snow",
       "label": "Снег",
       "icon": {
-        "path": "",
-        "style": {}
+        "style": "wu wu-64 wu-black wu-day wu-snow"
       }
     },
     {
       "value": "cloud",
       "label": "Облачно",
       "icon": {
-        "path": "",
-        "style": {}
+        "style": "wu wu-64 wu-black wu-day wu-cloudy"
       }
     },
     {
       "value": "sun",
       "label": "Ясно",
       "icon": {
-        "path": "",
-        "style": {}
+        "style": "wu wu-64 wu-black wu-day wu-sunny"
       }
     }
   ],

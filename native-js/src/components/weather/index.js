@@ -1,12 +1,13 @@
 import './index.css'
-import {createContainer, setClassNames} from "../../utils/element";
+import {createContainer, setClassNames, createWeatherIcon} from "../../utils/element";
 import constants from './constants';
+import IconMatcher from '../../utils/matcher'
 import _ from 'lodash';
 
 export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLike) => {
     let container = createContainer();
     setClassNames(container, '');
-
+    //todo не забыть про стили
     let dayContainer = createContainer();
     dayContainer.innerHTML = computeDayLabelFromDate(date);
     let dateContainer = createContainer();
@@ -15,7 +16,9 @@ export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLi
     let cloudinessContainer = createContainer();
     let cloudinessContainerText = createContainer();
     let cloudinessContainerIcon = createContainer();
-    //todo доделать
+    cloudinessContainerText.innerHTML = IconMatcher.getLabel(cloudiness);
+    let weatherIcon = createWeatherIcon(IconMatcher.getIconClasses(cloudiness));
+    cloudinessContainerIcon.appendChild(weatherIcon);
     cloudinessContainer.appendChild(cloudinessContainerText);
     cloudinessContainer.appendChild(cloudinessContainerIcon);
 
@@ -39,17 +42,15 @@ export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLi
     let feelsLikeContainer = createContainer();
     feelsLikeContainer.innerHTML = `${constants.feelsLike} ${feelsLike}`;
 
-    createContainer(dayContainer);
-    createContainer(dateContainer);
-    createContainer(cloudinessContainer);
-    createContainer(temperatureContainer);
-    createContainer(pressureContainer);
-    createContainer(humidityContainer);
-    createContainer(windContainer);
-    createContainer(feelsLikeContainer);
-
-
-    container.appendChild(dayContainer)
+    container.appendChild(dayContainer);
+    container.appendChild(dateContainer);
+    container.appendChild(cloudinessContainer);
+    container.appendChild(temperatureContainer);
+    container.appendChild(pressureContainer);
+    container.appendChild(humidityContainer);
+    container.appendChild(windContainer);
+    container.appendChild(feelsLikeContainer);
+    return container;
 }
 
 
