@@ -44,17 +44,41 @@ const initGrid = (data, countBeforeDays, countAfterDays) => {
                 resultArray.push(weatherData);
                 //запоминаем дни которые отобразить до сегодняшнего дня(для задания оно должно быть 0)
                 let i = 1;
+                let k = 1;
                 if (countBeforeDays > 0) {
                     while (i <= countBeforeDays) {
-                        resultArray.unshift(indexCurrentDay - i >= 0 ? data[indexCurrentDay - i] : null);
+                        let dataCurrent = indexCurrentDay - k >= 0 ? data[indexCurrentDay - k] : null;
+                        let date = getDateFromData(dataCurrent);
+                        let dateBefore = getDateBeforeNow(i);
+                        if (date != null && date.getFullYear() === dateBefore.getFullYear() &&
+                            date.getMonth() === dateBefore.getMonth() && date.getDate() === dateBefore.getDate()) {
+                            resultArray.unshift(dataCurrent);
+                            k++;
+                        } else {
+                            //если вчерашний день невчерашний(дата предыдущего елемента в массиве другая) тогда ставим null
+                            //такое может произойти в случае если день не указан(упущен) в массиве данных
+                            resultArray.unshift(null);
+                        }
                         i++;
                     }
                 }
                 //запоминаем дни после сегодняшнего
-                i = 1;
+                i = 1; //количество сколько добавили
+                k = 1; //количество дней без учета упущенных дней
                 if (countAfterDays > 0) {
                     while (i <= countAfterDays) {
-                        resultArray.push(indexCurrentDay + i < data.length ? data[indexCurrentDay + i] : null);
+                        let dataCurrent = indexCurrentDay + k < data.length ? data[indexCurrentDay + k] : null;
+                        let date = getDateFromData(dataCurrent);
+                        let dateAfter = getDateAfterNow(i);
+                        if (date != null && date.getFullYear() === dateAfter.getFullYear() &&
+                            date.getMonth() === dateAfter.getMonth() && date.getDate() === dateAfter.getDate()) {
+                            resultArray.push(dataCurrent);
+                            k++;
+                        } else {
+                            //если завтрашний день незавтрашний(дата следующего елемента в массиве другая) тогда ставим null
+                            //такое может произойти в случае если день не указан(упущен) в массиве данных
+                            resultArray.push(null);
+                        }
                         i++;
                     }
                 }
@@ -86,3 +110,13 @@ const getDateFromData = (weatherData) => {
             new Date(weatherData.date) : null;
 };
 
+const getDateBeforeNow = (countDays) => {
+    //возвращает дату в (сегодня - колво дней(countDays))
+    return new Date(new Date().setDate((new Date()).getDate() - countDays))
+};
+
+
+const getDateAfterNow = (countDays) => {
+    //возвращает дату в (сегодня + колво дней(countDays))
+    return new Date(new Date().setDate((new Date()).getDate() + countDays))
+};
