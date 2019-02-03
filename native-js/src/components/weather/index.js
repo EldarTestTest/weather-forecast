@@ -6,6 +6,7 @@ import _ from 'lodash';
 
 export const createEmptyWeather = () => {
   let container = createContainer();
+  setClassNames(container, 'weatherFieldContainer testBorderPink');
   let img = createImg(constants.preloader.path);
   img.style.width = constants.preloader.width;
   img.style.height = constants.preloader.height;
@@ -18,18 +19,18 @@ export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLi
     setClassNames(container, 'testBorderPink');
 
     let dayContainer = createContainer();
-    setClassNames(dayContainer, 'weatherDayLabel');
+    setClassNames(dayContainer, 'weatherFieldContainer weatherDayLabel');
     dayContainer.innerHTML = computeDayLabelFromDate(date);
     let dateContainer = createContainer();
-    setClassNames(dateContainer, 'weatherDateLabel');
+    setClassNames(dateContainer, 'weatherFieldContainer weatherDateLabel');
     dateContainer.innerHTML = computeDayMonthLabelFromDate(date);
 
     let cloudinessContainer = createContainer();
     setClassNames(cloudinessContainer, 'weatherCloudiness');
     let cloudinessContainerText = createContainer();
-    setClassNames(cloudinessContainerText, 'weatherCloudinessText');
+    setClassNames(cloudinessContainerText, 'weatherFieldContainer weatherCloudinessText');
     let cloudinessContainerIcon = createContainer();
-    setClassNames(cloudinessContainerIcon, 'weatherCloudinessIcon');
+    setClassNames(cloudinessContainerIcon, 'weatherFieldContainer weatherCloudinessIcon');
     cloudinessContainerText.innerHTML = IconMatcher.getLabel(cloudiness);
     let weatherIcon = createWeatherIcon(IconMatcher.getIconClasses(cloudiness));
     cloudinessContainerIcon.appendChild(weatherIcon);
@@ -39,28 +40,28 @@ export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLi
     let temperatureContainer = createContainer();
     setClassNames(temperatureContainer, 'weatherTemperature');
     let temperatureContainerDay = createContainer();
-    setClassNames(temperatureContainerDay, 'weatherTemperatureDay');
+    setClassNames(temperatureContainerDay, 'weatherFieldContainer weatherTemperatureDay');
     temperatureContainerDay.innerHTML = `${constants.dayTemperature} ${temperature.day}`;
     let temperatureContainerNight = createContainer();
-    setClassNames(temperatureContainerNight, 'weatherTemperatureNight');
+    setClassNames(temperatureContainerNight, 'weatherFieldContainer weatherTemperatureNight');
     temperatureContainerNight.innerHTML = `${constants.nightTemperature} ${temperature.night}`;
     temperatureContainer.appendChild(temperatureContainerDay);
     temperatureContainer.appendChild(temperatureContainerNight);
 
     let pressureContainer = createContainer();
-    setClassNames(pressureContainer, 'weatherPressure');
+    setClassNames(pressureContainer, 'weatherFieldContainer weatherPressure');
     pressureContainer.innerHTML = `${constants.pressure} ${pressure}`;
 
     let humidityContainer = createContainer();
-    setClassNames(humidityContainer, 'weatherHumidity');
+    setClassNames(humidityContainer, 'weatherFieldContainer weatherHumidity');
     humidityContainer.innerHTML = `${constants.humidity} ${humidity}`;
 
     let windContainer = createContainer();
-    setClassNames(windContainer, 'weatherWind');
+    setClassNames(windContainer, 'weatherFieldContainer weatherWind');
     windContainer.innerHTML = `${constants.wind} ${wind}`;
 
     let feelsLikeContainer = createContainer();
-    setClassNames(feelsLikeContainer, 'weatherFeelsLike');
+    setClassNames(feelsLikeContainer, 'weatherFieldContainer weatherFeelsLike');
     feelsLikeContainer.innerHTML = `${constants.feelsLike} ${feelsLike}`;
 
     container.appendChild(dayContainer);

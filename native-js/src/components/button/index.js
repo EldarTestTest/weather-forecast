@@ -7,10 +7,9 @@ export default (text, title, icon, onClickAction, classNames, iconSize) => {
     let button = createButton(text, title);
     button.onclick = onClickAction;
     setClassNames(button, classNames);
-    setClassNames(button, 'testBorderGreen');
+    setClassNames(button, 'Button');
     button.innerHTML = icon;
     button.style.fontSize = iconSize;
-    //todo добавление иконки
 
     containerButton.appendChild(button);
     return containerButton;

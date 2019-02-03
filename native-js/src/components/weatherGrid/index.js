@@ -10,25 +10,27 @@ export default () => {
     let prevDay = createButton(constants.prevDayText, constants.prevDayTitle,
         constants.stylesLeftButton.iconName, null, constants.stylesLeftButton.classNames,
         constants.stylesLeftButton.fontSize);
-    let nexDay = createButton(constants.nextDayText, constants.nextDayTitle,
+    setClassNames(prevDay, 'weatherGridLeftButton');
+    let nextDay = createButton(constants.nextDayText, constants.nextDayTitle,
         constants.stylesRightButton.iconName, null, constants.stylesRightButton.classNames,
         constants.stylesRightButton.fontSize);
+    setClassNames(nextDay, 'weatherGridRightButton');
 
     let gridContainer = initGrid(getWeatherData(), getDaysBefore(), getDaysAfter());
 
 
     let container = createContainer();
-    setClassNames(container, 'testBorderBlue');
+    setClassNames(container, 'weatherGrid');
     container.appendChild(prevDay);
     container.appendChild(gridContainer);
-    container.appendChild(nexDay);
+    container.appendChild(nextDay);
     return container;
 }
 
 const initGrid = (data, countBeforeDays, countAfterDays) => {
     let countDaysInGrid = countBeforeDays + countAfterDays + 1;
     let container = createContainer();
-    setClassNames(container, 'testBorderOrange');
+    setClassNames(container, 'weatherGridContainer');
     if (_.isArray(data)) {
         let indexCurrentDay = 0;
         let resultArray = [];
@@ -104,6 +106,9 @@ const initGrid = (data, countBeforeDays, countAfterDays) => {
 
 
 const getDateFromData = (weatherData) => {
+    if (weatherData == null) {
+        return null;
+    }
     return _.isString(weatherData.date) && weatherData.date !== '' ?
         new Date(Date.parse(weatherData.date)) :
         (_.isNumber(weatherData.date) || _.isDate(weatherData.date)) ?

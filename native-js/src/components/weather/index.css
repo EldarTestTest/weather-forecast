@@ -1,3 +1,16 @@
+.weatherFieldContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testBorderPink {
+    border: 1px solid #000000;
+    margin: 5px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
 .weatherDayLabel {
     font-size: 14px;
     font-weight: bold;

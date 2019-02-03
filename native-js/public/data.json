@@ -70,7 +70,7 @@
       "feelsLike": "-7"
     },
     {
-      "date": "2019-02-04",
+      "date": 1549234330121,
       "cloudiness": "cloud",
       "temperature": {
         "day": "-12",
@@ -107,7 +107,7 @@
     },
     {
       "date": "2019-02-07",
-      "cloudiness": "cloud",
+      "cloudiness": "rain",
       "temperature": {
         "day": "-3",
         "night": "-4"
