@@ -1,8 +1,17 @@
 import './index.css'
-import {createContainer, setClassNames, createWeatherIcon} from "../../utils/element";
+import {createContainer, setClassNames, createWeatherIcon, createImg} from "../../utils/element";
 import constants from './constants';
 import IconMatcher from '../../utils/matcher'
 import _ from 'lodash';
+
+export const createEmptyWeather = () => {
+  let container = createContainer();
+  let img = createImg(constants.preloader.path);
+  img.style.width = constants.preloader.width;
+  img.style.height = constants.preloader.height;
+  container.appendChild(img);
+  return container;
+};
 
 export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLike) => {
     let container = createContainer();

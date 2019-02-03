@@ -28,5 +28,10 @@ export default {
         october: 'Октября',
         november: 'Ноября',
         december: 'Декабря',
+    },
+    preloader:{
+        path: './public/svg-loaders/oval.svg',
+        width: '70px',
+        height: '70px'
     }
 }

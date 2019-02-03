@@ -1,7 +1,7 @@
 {
   "title": "Прогноз погоды",
-  "daysBefore": "0",
-  "daysAfter": "3",
+  "daysBefore": 0,
+  "daysAfter": 3,
   "matcherIconCloudiness": [
     {
       "value": "rain",
