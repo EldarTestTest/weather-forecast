@@ -17,8 +17,8 @@ console.log(getTitle());
 
 
     let contentContainer = createContainer();
-    /*let weatherGrid = weatherGridComponent();
-    contentContainer.appendChild(weatherGrid);*/
+    let weatherGrid = weatherGridComponent();
+    contentContainer.appendChild(weatherGrid);
 
 
     root.appendChild(titleContainer);
