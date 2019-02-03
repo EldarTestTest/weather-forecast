@@ -15,16 +15,21 @@ export const createEmptyWeather = () => {
 
 export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLike) => {
     let container = createContainer();
-    setClassNames(container, '');
-    //todo не забыть про стили
+    setClassNames(container, 'testBorderPink');
+
     let dayContainer = createContainer();
+    setClassNames(dayContainer, 'weatherDayLabel');
     dayContainer.innerHTML = computeDayLabelFromDate(date);
     let dateContainer = createContainer();
+    setClassNames(dateContainer, 'weatherDateLabel');
     dateContainer.innerHTML = computeDayMonthLabelFromDate(date);
 
     let cloudinessContainer = createContainer();
+    setClassNames(cloudinessContainer, 'weatherCloudiness');
     let cloudinessContainerText = createContainer();
+    setClassNames(cloudinessContainerText, 'weatherCloudinessText');
     let cloudinessContainerIcon = createContainer();
+    setClassNames(cloudinessContainerIcon, 'weatherCloudinessIcon');
     cloudinessContainerText.innerHTML = IconMatcher.getLabel(cloudiness);
     let weatherIcon = createWeatherIcon(IconMatcher.getIconClasses(cloudiness));
     cloudinessContainerIcon.appendChild(weatherIcon);
@@ -32,23 +37,30 @@ export default (date, cloudiness, temperature, pressure, humidity, wind, feelsLi
     cloudinessContainer.appendChild(cloudinessContainerIcon);
 
     let temperatureContainer = createContainer();
+    setClassNames(temperatureContainer, 'weatherTemperature');
     let temperatureContainerDay = createContainer();
+    setClassNames(temperatureContainerDay, 'weatherTemperatureDay');
     temperatureContainerDay.innerHTML = `${constants.dayTemperature} ${temperature.day}`;
     let temperatureContainerNight = createContainer();
+    setClassNames(temperatureContainerNight, 'weatherTemperatureNight');
     temperatureContainerNight.innerHTML = `${constants.nightTemperature} ${temperature.night}`;
     temperatureContainer.appendChild(temperatureContainerDay);
     temperatureContainer.appendChild(temperatureContainerNight);
 
     let pressureContainer = createContainer();
+    setClassNames(pressureContainer, 'weatherPressure');
     pressureContainer.innerHTML = `${constants.pressure} ${pressure}`;
 
     let humidityContainer = createContainer();
+    setClassNames(humidityContainer, 'weatherHumidity');
     humidityContainer.innerHTML = `${constants.humidity} ${humidity}`;
 
     let windContainer = createContainer();
+    setClassNames(windContainer, 'weatherWind');
     windContainer.innerHTML = `${constants.wind} ${wind}`;
 
     let feelsLikeContainer = createContainer();
+    setClassNames(feelsLikeContainer, 'weatherFeelsLike');
     feelsLikeContainer.innerHTML = `${constants.feelsLike} ${feelsLike}`;
 
     container.appendChild(dayContainer);

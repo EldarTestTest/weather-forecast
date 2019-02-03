@@ -1,0 +1,75 @@
+.weatherDayLabel {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherDateLabel {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherCloudiness {
+    margin: 1px;
+    padding: 1px;
+}
+
+.weatherCloudinessText {
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherCloudinessIcon {
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherTemperature{
+    margin: 1px;
+    padding: 1px;
+}
+
+.weatherTemperatureDay {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherTemperatureNight {
+    font-weight: bold;
+    color: #555555;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherPressure {
+    font-size: 14px;
+    color: #555555;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherHumidity {
+    font-size: 14px;
+    color: #555555;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherWind {
+    font-size: 14px;
+    color: #555555;
+    margin: 3px;
+    padding: 3px;
+}
+
+.weatherFeelsLike {
+    font-size: 14px;
+    color: #555555;
+    margin: 3px;
+    padding: 3px;
+}

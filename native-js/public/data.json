@@ -34,52 +34,136 @@
   ],
   "data": [
     {
-      "date": "",
-      "cloudiness": "",
+      "date": "2019-02-01",
+      "cloudiness": "rain",
       "temperature": {
-        "day": "",
-        "night": ""
+        "day": "-2",
+        "night": "-5"
       },
-      "pressure": "",
-      "humidity": "",
-      "wind": "",
-      "feelsLike": ""
+      "pressure": "755",
+      "humidity": "87%",
+      "wind": "5",
+      "feelsLike": "-7"
     },
     {
-      "date": "",
-      "cloudiness": "",
+      "date": "2019-02-02",
+      "cloudiness": "snow",
       "temperature": {
-        "day": "",
-        "night": ""
+        "day": "-12",
+        "night": "-15"
       },
-      "pressure": "",
-      "humidity": "",
-      "wind": "",
-      "feelsLike": ""
+      "pressure": "747",
+      "humidity": "78%",
+      "wind": "3",
+      "feelsLike": "-13"
     },
     {
-      "date": "",
-      "cloudiness": "",
+      "date": "2019-02-03",
+      "cloudiness": "rain",
       "temperature": {
-        "day": "",
-        "night": ""
+        "day": "-2",
+        "night": "-5"
       },
-      "pressure": "",
-      "humidity": "",
-      "wind": "",
-      "feelsLike": ""
+      "pressure": "755",
+      "humidity": "87%",
+      "wind": "5",
+      "feelsLike": "-7"
     },
     {
-      "date": "",
-      "cloudiness": "",
+      "date": "2019-02-04",
+      "cloudiness": "cloud",
       "temperature": {
-        "day": "",
-        "night": ""
+        "day": "-12",
+        "night": "-18"
       },
-      "pressure": "",
-      "humidity": "",
-      "wind": "",
-      "feelsLike": ""
+      "pressure": "760",
+      "humidity": "83%",
+      "wind": "4",
+      "feelsLike": "-15"
+    },
+    {
+      "date": "2019-02-05",
+      "cloudiness": "sun",
+      "temperature": {
+        "day": "-7",
+        "night": "-9"
+      },
+      "pressure": "767",
+      "humidity": "85%",
+      "wind": "2",
+      "feelsLike": "-5"
+    },
+    {
+      "date": "2019-02-08",
+      "cloudiness": "rain",
+      "temperature": {
+        "day": "0",
+        "night": "-2"
+      },
+      "pressure": "761",
+      "humidity": "88%",
+      "wind": "12",
+      "feelsLike": "-6"
+    },
+    {
+      "date": "2019-02-07",
+      "cloudiness": "cloud",
+      "temperature": {
+        "day": "-3",
+        "night": "-4"
+      },
+      "pressure": "768",
+      "humidity": "88%",
+      "wind": "2",
+      "feelsLike": "0"
+    },
+    {
+      "date": "2019-02-06",
+      "cloudiness": "snow",
+      "temperature": {
+        "day": "-5",
+        "night": "-8"
+      },
+      "pressure": "760",
+      "humidity": "80%",
+      "wind": "4",
+      "feelsLike": "-6"
+    },
+    {
+      "date": "2019-02-09",
+      "cloudiness": "sun",
+      "temperature": {
+        "day": "-6",
+        "night": "-6"
+      },
+      "pressure": "756",
+      "humidity": "75%",
+      "wind": "1",
+      "feelsLike": "-2"
+    },
+    {
+      "date": "2019-02-10",
+      "cloudiness": "snow",
+      "temperature": {
+        "day": "-5",
+        "night": "-6"
+      },
+      "pressure": "750",
+      "humidity": "77%",
+      "wind": "2",
+      "feelsLike": "-5"
+    },
+    {
+      "date": "2019-02-11",
+      "cloudiness": "cloud",
+      "temperature": {
+        "day": "0",
+        "night": "-1"
+      },
+      "pressure": "760",
+      "humidity": "80%",
+      "wind": "1",
+      "feelsLike": "+1"
     }
   ]
 }

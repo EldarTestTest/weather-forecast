@@ -2,9 +2,9 @@ export default {
     //todo по хорошему тянуть с бека и положить в глобальный store(redux)
     dayTemperature: 'Днем',
     nightTemperature: 'Ночью',
-    pressure: 'Давление, мм рт.ст',
+    pressure: 'Давление(мм рт.ст)',
     humidity: 'Влажность',
-    wind: 'Ветер, м/с',
+    wind: 'Ветер(м/с)',
     feelsLike: 'Ощущается как',
     day: {
         monday: 'Понедельник',

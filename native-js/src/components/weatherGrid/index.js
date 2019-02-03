@@ -18,6 +18,7 @@ export default () => {
 
 
     let container = createContainer();
+    setClassNames(container, 'testBorderBlue');
     container.appendChild(prevDay);
     container.appendChild(gridContainer);
     container.appendChild(nexDay);
@@ -27,6 +28,7 @@ export default () => {
 const initGrid = (data, countBeforeDays, countAfterDays) => {
     let countDaysInGrid = countBeforeDays + countAfterDays + 1;
     let container = createContainer();
+    setClassNames(container, 'testBorderOrange');
     if (_.isArray(data)) {
         let indexCurrentDay = 0;
         let resultArray = [];
