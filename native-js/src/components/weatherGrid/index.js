@@ -5,6 +5,7 @@ import createWeather, {createEmptyWeather} from '../weather'
 import constants from './constants'
 import {getWeatherData, getDaysAfter, getDaysBefore} from '../../utils/store'
 import _ from 'lodash'
+import store from '../../store/store'
 
 export default () => {
     let prevDay = createButton(constants.prevDayText, constants.prevDayTitle,
@@ -16,7 +17,8 @@ export default () => {
         constants.stylesRightButton.fontSize);
     setClassNames(nextDay, 'weatherGridRightButton');
 
-    let gridContainer = initGrid(getWeatherData(), getDaysBefore(), getDaysAfter());
+    // let gridContainer = initGrid(getWeatherData(), getDaysBefore(), getDaysAfter());
+    let gridContainer = initializeGrid();
 
 
     let container = createContainer();
@@ -26,6 +28,72 @@ export default () => {
     container.appendChild(nextDay);
     return container;
 }
+
+
+const initializeGrid = () => {
+    let container = createContainer();
+    setClassNames(container, 'weatherGridContainer');
+    container.id = 'gridWeatherData';
+    store.dispatch({type: 'INIT_GRID_CONTAINER_REF', payload: container.id});
+    return container;
+};
+
+const renderData = () => {
+    if (_.isArray(store.getState().weatherData.data) &&
+        _.isNumber(store.getState().weatherDataGrid.indexCurrentDay) &&
+        _.isNumber(store.getState().weatherData.daysBefore) &&
+        _.isNumber(store.getState().weatherData.daysAfter) &&
+        !_.isUndefined(store.getState().weatherDataGrid.dataGridRef) &&
+        !_.isNull(store.getState().weatherDataGrid.dataGridRef)) {
+        let resultArray = [];
+        if (store.getState().weatherDataGrid.indexCurrentDay >= 0 &&
+            store.getState().weatherDataGrid.indexCurrentDay <
+            store.getState().weatherData.data.length) {
+            resultArray.push(store.getState()
+                .weatherData.data[store.getState().weatherDataGrid.indexCurrentDay])
+        }
+        if (store.getState().weatherData.daysBefore > 0) {
+            let i = 1;
+            while (i <= store.getState().weatherData.daysBefore) {
+                if (store.getState().weatherDataGrid.indexCurrentDay - i >= 0) {
+                    let dataCurrent = store.getState().weatherData
+                        .data[store.getState().weatherDataGrid.indexCurrentDay - i];
+                    resultArray.unshift(dataCurrent);
+                } else {
+                    break;
+                }
+                i++;
+            }
+        }
+        if (store.getState().weatherData.daysAfter > 0) {
+            let i = 1;
+            while (i <= store.getState().weatherData.daysAfter) {
+                if (store.getState().weatherDataGrid.indexCurrentDay + i <
+                    store.getState().weatherData.data.length) {
+                    let dataCurrent = store.getState().weatherData
+                        .data[store.getState().weatherDataGrid.indexCurrentDay + i];
+                    resultArray.push(dataCurrent);
+                } else {
+                    break;
+                }
+                i++;
+            }
+        }
+        let element = document.getElementById(store.getState().weatherDataGrid.dataGridRef);
+        if (!_.isEmpty(resultArray) && element !== undefined && element != null) {
+            _.forEach(resultArray, (weatherData) => {
+                let weather = weatherData != null ?
+                    createWeather(weatherData.date, weatherData.cloudiness,
+                        weatherData.temperature, weatherData.pressure, weatherData.humidity,
+                        weatherData.wind, weatherData.feelsLike) :
+                    createEmptyWeather();
+                element.appendChild(weather);
+            });
+        }
+    }
+};
+
+store.subscribe(renderData);
 
 const initGrid = (data, countBeforeDays, countAfterDays) => {
     let countDaysInGrid = countBeforeDays + countAfterDays + 1;
@@ -104,7 +172,6 @@ const initGrid = (data, countBeforeDays, countAfterDays) => {
 
 };
 
-
 const getDateFromData = (weatherData) => {
     if (weatherData == null) {
         return null;
@@ -119,7 +186,6 @@ const getDateBeforeNow = (countDays) => {
     //возвращает дату в (сегодня - колво дней(countDays))
     return new Date(new Date().setDate((new Date()).getDate() - countDays))
 };
-
 
 const getDateAfterNow = (countDays) => {
     //возвращает дату в (сегодня + колво дней(countDays))
