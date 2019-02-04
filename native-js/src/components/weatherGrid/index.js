@@ -57,7 +57,7 @@ const leftButtonAction = () => {
         !_.isUndefined(store.getState().weatherDataGrid.dataGridRef) &&
         !_.isNull(store.getState().weatherDataGrid.dataGridRef)) {
 
-        if (store.getState().weatherDataGrid.indexCurrentDay > 1) {
+        if (store.getState().weatherDataGrid.indexCurrentDay > 0) {
             //todo учесть то что перед текущим днем могут находиться элементы
             store.dispatch(
                 {
