@@ -9,17 +9,16 @@ import store from '../../store/store'
 
 export default () => {
     let prevDay = createButton(constants.prevDayText, constants.prevDayTitle,
-        constants.stylesLeftButton.iconName, null, constants.stylesLeftButton.classNames,
+        constants.stylesLeftButton.iconName, leftButtonAction, constants.stylesLeftButton.classNames,
         constants.stylesLeftButton.fontSize);
     setClassNames(prevDay, 'weatherGridLeftButton');
     let nextDay = createButton(constants.nextDayText, constants.nextDayTitle,
-        constants.stylesRightButton.iconName, null, constants.stylesRightButton.classNames,
+        constants.stylesRightButton.iconName, rightButtonAction, constants.stylesRightButton.classNames,
         constants.stylesRightButton.fontSize);
     setClassNames(nextDay, 'weatherGridRightButton');
 
     // let gridContainer = initGrid(getWeatherData(), getDaysBefore(), getDaysAfter());
     let gridContainer = initializeGrid();
-
 
     let container = createContainer();
     setClassNames(container, 'weatherGrid');
@@ -29,6 +28,46 @@ export default () => {
     return container;
 }
 
+const rightButtonAction = () => {
+    if (_.isArray(store.getState().weatherData.data) &&
+        _.isNumber(store.getState().weatherDataGrid.indexCurrentDay) &&
+        _.isNumber(store.getState().weatherData.daysBefore) &&
+        _.isNumber(store.getState().weatherData.daysAfter) &&
+        !_.isUndefined(store.getState().weatherDataGrid.dataGridRef) &&
+        !_.isNull(store.getState().weatherDataGrid.dataGridRef)) {
+
+        if (store.getState().weatherDataGrid.indexCurrentDay +
+            store.getState().weatherData.daysAfter <
+            store.getState().weatherData.data.length - 1) {
+            store.dispatch(
+                {
+                    type: 'INIT_INDEX_CURRENT_DAY',
+                    payload: store.getState().weatherDataGrid.indexCurrentDay + 1
+                }
+            );
+        }
+    }
+};
+
+const leftButtonAction = () => {
+    if (_.isArray(store.getState().weatherData.data) &&
+        _.isNumber(store.getState().weatherDataGrid.indexCurrentDay) &&
+        _.isNumber(store.getState().weatherData.daysBefore) &&
+        _.isNumber(store.getState().weatherData.daysAfter) &&
+        !_.isUndefined(store.getState().weatherDataGrid.dataGridRef) &&
+        !_.isNull(store.getState().weatherDataGrid.dataGridRef)) {
+
+        if (store.getState().weatherDataGrid.indexCurrentDay > 1) {
+            //todo учесть то что перед текущим днем могут находиться элементы
+            store.dispatch(
+                {
+                    type: 'INIT_INDEX_CURRENT_DAY',
+                    payload: store.getState().weatherDataGrid.indexCurrentDay - 1
+                }
+            );
+        }
+    }
+};
 
 const initializeGrid = () => {
     let container = createContainer();
@@ -81,6 +120,9 @@ const renderData = () => {
         }
         let element = document.getElementById(store.getState().weatherDataGrid.dataGridRef);
         if (!_.isEmpty(resultArray) && element !== undefined && element != null) {
+            while (element.firstChild) {
+                element.removeChild(element.firstChild);
+            }
             _.forEach(resultArray, (weatherData) => {
                 let weather = weatherData != null ?
                     createWeather(weatherData.date, weatherData.cloudiness,
@@ -96,6 +138,7 @@ const renderData = () => {
 store.subscribe(renderData);
 
 const initGrid = (data, countBeforeDays, countAfterDays) => {
+    //todo метод который инициализированл элементы с данными без redux
     let countDaysInGrid = countBeforeDays + countAfterDays + 1;
     let container = createContainer();
     setClassNames(container, 'weatherGridContainer');

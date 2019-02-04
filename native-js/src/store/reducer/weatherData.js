@@ -1,7 +1,7 @@
 const initialState = {
     data:[],
-    daysBefore: undefined,
-    daysAfter: undefined,
+    daysBefore: undefined, //количество элементов на экране до текущего дня(для тестого задания =0)
+    daysAfter: undefined, //количество лементов на экране после текущего дня(для тестого задания =3)
 };
 
 export default function weatherDataReducer(state = initialState, action) {
