@@ -34,7 +34,7 @@
   ],
   "data": [
     {
-      "date": "2019-02-01",
+      "date": 1548979200000,
       "cloudiness": "rain",
       "temperature": {
         "day": "-2",
@@ -46,7 +46,7 @@
       "feelsLike": "-7"
     },
     {
-      "date": "2019-02-02",
+      "date": 1549065600000,
       "cloudiness": "snow",
       "temperature": {
         "day": "-12",
@@ -58,7 +58,7 @@
       "feelsLike": "-13"
     },
     {
-      "date": "2019-02-03",
+      "date": 1549152000000,
       "cloudiness": "rain",
       "temperature": {
         "day": "-2",
@@ -82,7 +82,7 @@
       "feelsLike": "-15"
     },
     {
-      "date": "2019-02-05",
+      "date": 1549324800000,
       "cloudiness": "sun",
       "temperature": {
         "day": "-7",
@@ -94,7 +94,7 @@
       "feelsLike": "-5"
     },
     {
-      "date": "2019-02-08",
+      "date": 1549584000000,
       "cloudiness": "rain",
       "temperature": {
         "day": "0",
@@ -106,7 +106,7 @@
       "feelsLike": "-6"
     },
     {
-      "date": "2019-02-07",
+      "date": 1549497600000,
       "cloudiness": "rain",
       "temperature": {
         "day": "-3",
@@ -118,7 +118,7 @@
       "feelsLike": "0"
     },
     {
-      "date": "2019-02-06",
+      "date": 1549411200000,
       "cloudiness": "snow",
       "temperature": {
         "day": "-5",
@@ -130,7 +130,7 @@
       "feelsLike": "-6"
     },
     {
-      "date": "2019-02-09",
+      "date": 1549670400000,
       "cloudiness": "sun",
       "temperature": {
         "day": "-6",
@@ -142,7 +142,7 @@
       "feelsLike": "-2"
     },
     {
-      "date": "2019-02-10",
+      "date": 1549756800000,
       "cloudiness": "snow",
       "temperature": {
         "day": "-5",
@@ -154,7 +154,7 @@
       "feelsLike": "-5"
     },
     {
-      "date": "2019-02-11",
+      "date": 1549843200000,
       "cloudiness": "cloud",
       "temperature": {
         "day": "0",
